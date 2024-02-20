@@ -41,8 +41,8 @@ function tampilkanProject($judul, $link)
 <?php include 'layout/navbar.php'?>
 
 
-<div class="w-full max-w-md mx-auto shadow-2xl" style="margin-top: 10em;">
-<h1 class="mb-4 text-5xl mx-auto text-center font-extrabold leading-none tracking-tight text-blue-500 ">My Project 🌏</h1>
+<main class="w-full max-w-md mx-auto" style="margin-top: 10em;">
+<h1 class="mb-4 text-4xl mx-auto text-center font-extrabold leading-none tracking-tight text-blue-500 ">My Project 🌏</h1>
 <section class="px-8 pb-8">
 <?php
 foreach ($project as $post) {
@@ -50,6 +50,6 @@ foreach ($project as $post) {
 }
 ?>
 </section>
-</div>
+</main>
 </body>
 </html>
