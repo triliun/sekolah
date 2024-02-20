@@ -17,12 +17,8 @@ $output = '';
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>📏 Perulangan Kata</title>
-        <?php include 'layout/head.html' ?>
-    </head>
-    <body>
+<?php $title = '📏 Perulangan Kata'; include 'layout/head.html'; ?>
+<body>
 <?php include 'layout/navbar.php'?>
 <div class="w-full max-w-md mx-auto shadow-2xl" style="margin-top: 10em;">
 <form method="post" class="bg-white rounded px-8 mb-4">

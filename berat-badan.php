@@ -7,13 +7,8 @@ if (!isset($_SESSION['loggedin'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berat Badan 🍔</title>
-    <?php include 'layout/head.html' ?>
-</head>
+<html>
+<?php $title = 'Berat Badan 🍔'; include 'layout/head.html'; ?>
 <body>
 <?php include 'layout/navbar.php'?>
 <div class="w-full max-w-md mx-auto my-auto shadow-2xl" style="margin-top: 10em;"> 

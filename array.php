@@ -8,14 +8,11 @@ if (!isset($_SESSION['loggedin'])) {
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Array 📦</title>
-	<?php include 'layout/head.html' ?>
-</head>
+<?php $title = 'Array 📦'; include 'layout/head.html'; ?>
 <body>
 <?php include 'layout/navbar.php'?>
+
+
 <main class="p-4 w-full max-w-lg mx-auto" style="margin-top: 5em;">
 <h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-green-500">Menampilkan Array Dengan For Loop</h2>
 <?php
