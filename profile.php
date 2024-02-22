@@ -1,64 +1,49 @@
 <?php
-// We need to use sessions, so you should always start sessions using the below code.
 session_start();
-// If the user is not logged in redirect to the login page...
+
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: index.php');
+	header('Location: /');
 	exit;
 }
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'account';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
-// We don't have the password or email info stored in sessions, so instead, we can get the results from the database.
-$stmt = $con->prepare('SELECT password, email FROM accounts WHERE id = ?');
-// In this case we can use the account ID to get the account info.
+include 'database.php';
+
+$stmt = $con->prepare('SELECT password, username, first_name, last_name, time FROM users WHERE id = ?');
+
 $stmt->bind_param('i', $_SESSION['id']);
 $stmt->execute();
-$stmt->bind_result($password, $email);
+$stmt->bind_result($password, $username, $first_name, $last_name, $time);
 $stmt->fetch();
 $stmt->close();
 ?>
 
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Profile Page</title>
-		<link href="style.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
-	</head>
-	<body class="loggedin">
-		<nav class="navtop">
-			<div>
-				<h1>Website Title</h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
-			</div>
-		</nav>
-		<div class="content">
-			<h2>Profile Page</h2>
-			<div>
-				<p>Your account details are below:</p>
-				<table>
-					<tr>
-						<td>Username:</td>
-						<td><?=$_SESSION['name']?></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-						<td><?=$password?></td>
-					</tr>
-					<tr>
-						<td>Email:</td>
-						<td><?=$email?></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</body>
+<html lang="id" class="scroll-smooth antialiased">
+<?php $title = 'My Profile'; include 'layout/head.html'; ?>
+<body class="bg-gray-900 backdrop-blur-3xl">
+<?php include 'layout/nav.php' ?>
+
+<main class="h-screen flex items-center justify-center">
+    <section class="w-72 mx-auto bg-[#20354b] rounded-2xl px-8 py-6 shadow-lg">
+        <div class="flex items-center justify-between">
+            <span class="text-gray-400 text-sm mx-auto"><?=$time?></span>
+        </div>
+        <div class="mt-6 w-fit mx-auto">
+            <img src="http://localhost/images/android-chrome-512x512.png" class="rounded-full w-28 " alt="profile picture" srcset="">
+        </div>
+
+        <div class="mt-8 ">
+            <h2 class="text-white font-bold text-2xl tracking-wide"><?=$first_name?> <?=$last_name?></h2>
+        </div>
+        <p class="text-emerald-400 font-semibold mt-2.5" >
+            <?=$username?>
+        </p>
+
+        <div class="h-1 w-full bg-black mt-8 rounded-full">
+            <div class="h-1 rounded-full w-full bg-yellow-500 "></div>
+        </div>
+    </section>
+</main>
+<?php include 'layout/footer.php'; ?>
+<?php include 'layout/sc-nav.php'; ?>
+</body>
 </html>

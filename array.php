@@ -1,16 +1,12 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['loggedin'])) {
-    header('Location: /');
-    exit;
-}
 ?>
 <!DOCTYPE html>
-<html>
-<?php $title = 'Array 📦'; include 'layout/head.html'; ?>
-<body>
-<?php include 'layout/navbar.php'?>
+<html lang="id" class="scroll-smooth antialiased">
+<?php $title = 'Array'; include 'layout/head.html'; ?>
+<body class="bg-gray-900 backdrop-blur-3xl">
+<?php include 'layout/nav.php' ?>
+<?php include 'layout/cek-login.php' ?>
 
 
 <main class="p-4 w-full max-w-lg mx-auto" style="margin-top: 5em;">
