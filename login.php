@@ -11,10 +11,9 @@ if (isset($_SESSION['loggedin'])) {
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
-    $password_id = $_POST['password'];
+    $password = $_POST['password'];
 
-
-    if (empty($username) || empty($password_id)) {
+    if (empty($username) || empty($password)) {
         $pesan = 'Tolong masukkan username dan password!';
     }
 
@@ -28,7 +27,7 @@ if (isset($_POST['login'])) {
             $stmt->bind_result($id, $hashed_password, $first_name, $last_name);
             $stmt->fetch();
 
-            if (password_verify($password_id, $hashed_password)) {
+            if (password_verify($password, $hashed_password)) {
                 session_regenerate_id();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['name'] = $username;

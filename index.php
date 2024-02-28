@@ -57,7 +57,7 @@ function projectList($judul, $deskripsi, $link, $svg)
 
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth antialiased">
-<?php $title = 'CV - Varrel Al Aljabaar K'; include 'layout/head.html'; ?>
+<?php $title = 'Varrel Al Aljabaar K'; include 'layout/head.html'; ?>
 <body class="bg-gray-900 backdrop-blur-3xl">
 <?php include 'layout/nav.php' ?>
 <main class="w-full mx-auto text-white">
@@ -99,7 +99,7 @@ function projectList($judul, $deskripsi, $link, $svg)
 <section class="px-4 py-10 px-4">
     <h1 id="about" class="bg-gradient-to-r pb-2 text-center from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl animate-gradient">About Me
     </h1>
-<p class="mx-auto text-center max-w-xl mt-4 sm:text-xl/relaxed">Hai, aku Varrel Al Jabaar Konstitusi , biasanya dipanggil Varrel. Saya suka 🏊‍♂️ berenang seminggu sekali kadang ✍️ menulis artikel. Juga belajar bikin 🧑‍💻 blog app dan cari tau 🔎 trik SEO juga jadi rutinitas aku. Pernah loh, halaman aku sempet masuk peringkat 3 di mesin pencarian, meski cuma sebentar. Bangga banget sama pencapaian itu!</p>
+<p class="mx-auto text-center max-w-xl mt-4 sm:text-xl/relaxed">Hai, aku Varrel Al Jabaar Konstitusi , biasa dipanggil Varrel. Saya suka 🏊‍♂️ berenang seminggu sekali kadang ✍️ menulis artikel. Juga belajar bikin 🧑‍💻 blog app dan cari tau 🔎 trik SEO juga jadi rutinitas aku. Pernah loh, halaman aku sempet masuk peringkat 3 di mesin pencarian, meski cuma sebentar. Bangga banget sama pencapaian itu!</p>
 </div>
 </section>
 </section>

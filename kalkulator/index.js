@@ -3,12 +3,16 @@ const buttons = document.querySelectorAll("button");
 const specialChars = ["%", "+", "-", "/", "*", "="];
 let output = "";
 
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => calculate(e.target.dataset.value));
+});
+
 const calculate = (btnValue) => {
   const lastChar = output.charAt(output.length - 1);
 
   if (isNaN(lastChar) && specialChars.includes(btnValue)) {
     return;
-  }
+  } 
 
   if (btnValue === "=" && output !== "") {
     try {
@@ -27,6 +31,3 @@ const calculate = (btnValue) => {
   display.value = output;
 };
 
-buttons.forEach((button) => {
-  button.addEventListener("click", (e) => calculate(e.target.dataset.value));
-});

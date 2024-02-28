@@ -30,7 +30,7 @@ if (isset($_POST["register"])) {
 
             if ($stmt->execute()) {
                 $pesanSuscces = 'Daftar akun berhasil, silahkan login!';
-                header('Location: register.php');
+                header('Location: login.php');
             } else {
                 $pesanError = 'Daftar akun gagal, silahkan coba lagi!';
             }
@@ -79,9 +79,6 @@ function tampilkanSuccess($pesanSuscces)
     </div>';
 }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth antialiased">
 <?php $title = 'Register'; include 'layout/head.html'; ?>
